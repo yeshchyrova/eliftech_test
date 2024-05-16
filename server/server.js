@@ -9,7 +9,7 @@ const PORT = 8080;
 // req.query === {page: 1, sdsd: 34}
 // app.use(express.urlencoded({ extended: false })); парсер для форм
 
-app.get("/board", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
