@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import events from "../../boardList.json";
 import Link from "next/link";
 
@@ -8,6 +8,15 @@ const setDesc = (title: string) => {
 };
 
 const BoardPage = () => {
+
+// useEffect(() => {
+//   fetch("http://localhost:8080/board").then(responce => responce.json()).then(data => {
+//     console.log(data);
+// });
+// }, []);
+
+
+  
   return (
     <section className="px-[20px]">
       <h1 className="mb-5 text-2xl mt-7 ml-5">Events</h1>

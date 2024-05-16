@@ -1,8 +1,6 @@
 {
-  "name": "eliftech_test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yeshchyrova.github.io/eliftech_test/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,6 +14,7 @@
     "autoprefixer": "10.4.19",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.3",
+    "express": "^4.19.2",
     "next": "14.2.3",
     "postcss": "8.4.38",
     "react": "18.3.1",
