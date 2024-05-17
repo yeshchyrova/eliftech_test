@@ -1,27 +1,23 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
-app.use(express.json());
-app.use(cors());
-const PORT = 8080;
+const mongoose = require("mongoose");
+const { app } = require("./app");
 
-// req.params.id
-// req.query === {page: 1, sdsd: 34}
-// app.use(express.urlencoded({ extended: false })); парсер для форм
+mongoose.Promise = global.Promise;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+const PORT = process.env.PORT || 8080;
+const eliftechDb =
+  "mongodb+srv://elisarrar:VyfZ6X8abwx1883n@cluster0.med7ycc.mongodb.net/db-events?retryWrites=true&w=majority&appName=Cluster0";
 
-// app.get("/board", (req, res) => {
-//
-// })
+mongoose.set("strictQuery", true);
 
-// app.get("/registration", (req, res, next) => {
-//   console.log("reg");
-  // //const { fullName, email, birthDate, heardFrom } = req.body;
-// });
-// app.METHOD(PATH, HANDLER)
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}!`);
-});
+mongoose
+  .connect(eliftechDb)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running. Use our API on port: ${PORT}`);
+    });
+    console.log("Database connection successful");
+  })
+  .catch((e) => {
+    console.log(e.message);
+    process.exit(1);
+  });
