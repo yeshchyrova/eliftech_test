@@ -37,10 +37,8 @@ const BoardPage = () => {
   );
 };
 
-
 const setDesc = (title) => {
   return title.length > 108 ? title.slice(0, 108) + "..." : title;
 };
-
 
 export default BoardPage;
