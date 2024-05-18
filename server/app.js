@@ -17,8 +17,11 @@ app.use(express.json());
 app.use(logger(formatsLogger));
 app.use(express.static("public"));
 
-app.use("/", eventsRouter);
-
+// app.use("/", eventsRouter);
+app.use("/", (req, res) => {
+  res.send("EE server was run (send method)");
+  console.log("EE server was run")
+})
 app.use((_, res) => {
   res.status(404).json({ message: "Not found" });
 });
